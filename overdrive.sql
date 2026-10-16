@@ -1,0 +1,44 @@
+CREATE DATABASE overdrive;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  nickname VARCHAR(50) UNIQUE NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(20) NOT NULL DEFAULT 'player'
+);
+
+CREATE TABLE players (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER UNIQUE NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  nickname VARCHAR(50) NOT NULL,
+  game_role VARCHAR(30) NOT NULL,
+  elo INTEGER NOT NULL DEFAULT 0,
+  region VARCHAR(30) NOT NULL,
+  bio TEXT,
+  looking VARCHAR(10) NOT NULL DEFAULT 'team'
+);
+
+CREATE TABLE teams (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER UNIQUE NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  name VARCHAR(60) NOT NULL,
+  region VARCHAR(30) NOT NULL,
+  needed_role VARCHAR(30),
+  min_elo INTEGER NOT NULL DEFAULT 0,
+  description TEXT
+);
+
+CREATE TABLE invitations (
+  id SERIAL PRIMARY KEY,
+  team_id INTEGER NOT NULL REFERENCES teams(id) ON DELETE CASCADE,
+  player_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  message TEXT,
+  status VARCHAR(15) NOT NULL DEFAULT 'pending',
+  CONSTRAINT unique_invitation UNIQUE (team_id, player_id)
+);
+
+CREATE TABLE sessions (
+  token VARCHAR(100) PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
+);

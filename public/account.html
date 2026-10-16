@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Личный кабинет — OverDrive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">
+        <span class="logo__mark">OD</span>
+        <span>OverDrive</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="players.html">Игроки</a>
+        <a href="teams.html">Команды</a>
+        <a id="navAccount" href="login.html">Вход</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container breadcrumbs">
+    <a href="index.html">Главная</a><span>/</span>Личный кабинет
+  </div>
+
+  <main class="container">
+    <div class="panel fade-in" id="profileBox">
+      Загружаем данные...
+    </div>
+    <div class="section" id="playerSection" style="display:none">
+      <div class="section__head">
+        <h2>Моя анкета игрока</h2>
+      </div>
+
+      <div class="panel">
+        <div class="message message--error" id="profileMessage"></div>
+
+        <form id="profileForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="game_role">Игровая роль</label>
+              <select class="select" id="game_role">
+                <option>AWP</option>
+                <option>Rifler</option>
+                <option>Entry</option>
+                <option>Support</option>
+                <option>Lurker</option>
+                <option>IGL</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="region">Регион</label>
+              <select class="select" id="region">
+                <option>СНГ</option>
+                <option>Европа</option>
+                <option>Азия</option>
+                <option>Америка</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="elo">Рейтинг ELO</label>
+              <input class="input" type="number" id="elo" min="0" max="5000">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="looking">Статус поиска</label>
+            <select class="select" id="looking">
+              <option value="team">Ищу команду</option>
+              <option value="none">Не ищу команду</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="bio">О себе</label>
+            <textarea class="textarea" id="bio" maxlength="600"></textarea>
+          </div>
+
+          <button class="button" type="submit" id="saveProfileButton">Сохранить анкету</button>
+        </form>
+      </div>
+    </div>
+    <div class="section" id="teamSection" style="display:none">
+      <div class="section__head">
+        <h2>Моя команда</h2>
+      </div>
+      <div class="panel" id="teamBox"></div>
+    </div>
+    <div class="section" id="inboxSection" style="display:none">
+      <div class="section__head">
+        <h2>Входящие приглашения</h2>
+        <button class="button button--ghost button--small" type="button" id="reloadButton">Обновить</button>
+      </div>
+      <div id="inboxList"></div>
+    </div>
+    <div class="section" id="sentSection" style="display:none">
+      <div class="section__head">
+        <h2>Отправленные приглашения</h2>
+      </div>
+      <div id="sentList"></div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div><b>OverDrive</b> — учебный проект, УП.08</div>
+      <div>Связь: <a href="mailto:overdrive@mail.ru">overdrive@mail.ru</a></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="account.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OverDrive — поиск команды для турниров CS2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">
+        <span class="logo__mark">OD</span>
+        <span>OverDrive</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="players.html">Игроки</a>
+        <a href="teams.html">Команды</a>
+        <a id="navAccount" href="login.html">Вход</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero fade-in">
+      <h1>Найди свою команду в CS2</h1>
+      <p>
+        OverDrive — площадка, где игроки находят команды, а команды — игроков.
+        Анкеты с игровой ролью, рейтингом и регионом, приглашения в один клик
+        и понятные фильтры поиска.
+      </p>
+      <div class="hero__actions">
+        <a class="button" href="teams.html">Найти команду</a>
+        <a class="button button--ghost" href="players.html">Найти игроков</a>
+      </div>
+    </section>
+
+    <section class="stats fade-in">
+      <div class="stat">
+        <div class="stat__value" id="statPlayers">—</div>
+        <div class="stat__label">анкет игроков</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value" id="statTeams">—</div>
+        <div class="stat__label">команд</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value" id="statLooking">—</div>
+        <div class="stat__label">ищут команду</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Как это работает</h2>
+      <div class="grid">
+        <div class="card fade-in">
+          <h3>1. Создайте аккаунт</h3>
+          <p class="card__bio">Регистрация занимает минуту. Пароль хранится в виде хеша.</p>
+        </div>
+        <div class="card fade-in">
+          <h3>2. Заполните анкету</h3>
+          <p class="card__bio">Укажите игровую роль, регион и рейтинг ELO.</p>
+        </div>
+        <div class="card fade-in">
+          <h3>3. Получите приглашение</h3>
+          <p class="card__bio">Команды присылают приглашения, вы принимаете или отклоняете их в личном кабинете.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <b>OverDrive</b> — учебный проект по теме «Поиск команды для киберспортивных турниров».
+      </div>
+      <div>
+        Связь: <a href="mailto:overdrive@mail.ru">overdrive@mail.ru</a> ·
+        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+
+  <script src="index.js"></script>
+</body>
+</html>
